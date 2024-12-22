@@ -9,4 +9,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    outDir: 'dist', // Diretório de saída padrão
+  },
+  server: {
+    fs: {
+      allow: ['..'], // Permite acessar arquivos fora do diretório root, se necessário
+    },
+  },
+  // Configuração para corrigir rotas no ambiente de produção
+  esbuild: {
+    loader: 'tsx',
+  },
 });
